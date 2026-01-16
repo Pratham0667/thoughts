@@ -1,27 +1,46 @@
 #thought-card{
-    text-align: center;
-    font-size: larger;
-    background-color: black;
-    color:  red;
-    margin: 25%;
-    text-transform: capitalize;
-    height: 250px;
-    margin-top: 10% ;
+  text-align: center;
+  font-size: larger;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: red;
+  text-transform: capitalize;
+
+  /* FIX: responsive centering (remove margin:25%) */
+  width: min(520px, 92%);
+  margin: 10vh auto 0;
+  padding: 24px;
+  border-radius: 16px;
+
+  /* FIX: don’t force fixed height */
+  min-height: 250px;
 }
+
 button{
   color: rgb(19, 19, 19);
   background-color: rgb(255, 0, 0);
-  margin: 10%;
-  margin-bottom: 0%;
-  margin-top: 0%;
-  height: 24px;
-  padding: 24px;
+
+  margin: 12px auto 0;
+  display: inline-block;
+  height: auto;
+  padding: 12px 18px;
+
   text-transform: capitalize;
   text-align: center;
-  font-weight: 500;
+  font-weight: 600;
   font-family: 'Courier New', Courier, monospace;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
 }
+
+button:active{
+  transform: scale(0.98);
+}
+
 body{
-  background-image: url(https://cdn.playbackonline.ca/wp/wp-content/uploads/2020/05/Screen-Shot-2020-05-04-at-1.41.10-PM.png);
-  /* background-repeat: no-repeat  ; */
+  background-image: url("assets/bg.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
 }

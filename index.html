@@ -66,6 +66,14 @@
   v.addEventListener("ended", () => {
     window.location.href = "next.html";
   });
+  // Start video + hide hint on Enter/Space too
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" || e.key === " ") {
+    v.play();
+    hideHint();
+  }
+});
+
   </script>
 
 </body>
