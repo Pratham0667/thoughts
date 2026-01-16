@@ -3,54 +3,22 @@ let para = document.createElement("p");
 para.style.fontFamily = "'Courier New', Courier, monospace"
 div.append(para)
 let count = 0;
-const thoughts = () =>{
-   count++ ;
-  switch (count) {
-  case 1:
-    para.innerText = "Thought 1: Start before you feel ready.";
-    break;
 
-  case 2:
-    para.innerText = "Thought 2: Small daily progress beats rare big effort.";
-    break;
+const thoughts = [
+  "First, solve the problem. Then, write the code. — John Johnson",
+  "Talk is cheap. Show me the code. — Linus Torvalds",
+  "Programs must be written for people to read... — Harold Abelson",
+  "The best error message is the one that never shows up. — Thomas Fuchs",
+  "Code is like humor. When you have to explain it, it’s bad. — Cory House",
+  "Make it work, make it right, make it fast. — Kent Beck",
+  "Simplicity is the soul of efficiency. — Austin Freeman",
+  "Fix the cause, not the symptom. — Steve Maguire",
+  "Before software can be reusable it first has to be usable. — Ralph Johnson",
+  "Any fool can write code... — Martin Fowler"
+  
+];
 
-  case 3:
-    para.innerText = "Thought 3: Consistency is a skill—train it.";
-    break;
-
-  case 4:
-    para.innerText = "Thought 4: If it’s important, schedule it. If it’s not scheduled, it’s a wish.";
-    break;
-
-  case 5:
-    para.innerText = "Thought 5: Your focus is your life—guard it aggressively.";
-    break;
-
-  case 6:
-    para.innerText = "Thought 6: Don’t seek motivation—seek momentum.";
-    break;
-
-  case 7:
-    para.innerText = "Thought 7: Discipline is choosing what you want most over what you want now.";
-    break;
-
-  case 8:
-    para.innerText = "Thought 8: Learn one thing deeply today, not ten things shallowly.";
-    break;
-
-  case 9:
-    para.innerText = "Thought 9: You don’t need more time—you need fewer distractions.";
-    break;
-
-  case 10:
-    para.innerText = "Thought 10: Ship something small today. Finished beats perfect.";
-    break;
-
-  default:
-    para.innerText = "New day, new chance. Reset count and go again.";
-    count = 0; // optional: so it loops back to case 1 next click
-    break;
-}
-
-}
-
+const thought = () =>{
+   para.innerText = thoughts[count];
+   count= (count+1)% thoughts.length 
+} 

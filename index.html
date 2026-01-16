@@ -22,10 +22,11 @@
       height: 100%;
       display: grid;
       place-items: center;
-      color: rgb(0, 0, 0);
+      color: rgb(255, 253, 253);
       font-family: Arial, sans-serif;
       text-shadow: 0 2px 10px rgba(0,0,0,0.7);
       pointer-events: none;
+      text-transform: capitalize;
     }
   </style>
 </head>
@@ -38,20 +39,33 @@
 
   <div class="overlay">
     <h1>Welcome</h1>
+    <p id="pressHint"><i>press to start</i></p>
   </div>
 
   <script>
-    const v = document.getElementById("introVideo");
+     const v = document.getElementById("introVideo");
+  const hint = document.getElementById("pressHint");
 
-    // If autoplay gets blocked, force play on first click
-    v.play().catch(() => {
-      document.body.addEventListener("click", () => v.play(), { once: true });
-    });
+  function hideHint() {
+    if (hint) hint.style.display = "none";
+  }
 
-    // Redirect when video ends
-    v.addEventListener("ended", () => {
-      window.location.href = "next.html";
-    });
+  // Try autoplay
+  v.play().then(hideHint).catch(() => {
+    // Autoplay blocked: wait for user click, then play + hide hint
+    document.body.addEventListener("click", () => {
+      v.play();
+      hideHint();
+    }, { once: true });
+  });
+
+  // Extra safety: if video starts playing by any reason
+  v.addEventListener("play", hideHint, { once: true });
+
+  // Redirect when video ends
+  v.addEventListener("ended", () => {
+    window.location.href = "next.html";
+  });
   </script>
 
 </body>
